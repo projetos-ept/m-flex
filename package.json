@@ -1,0 +1,45 @@
+{
+  "name": "mermeid-flex",
+  "version": "1.2.0",
+  "private": true,
+  "type": "module",
+  "description": "Estúdio de mapas mentais Mermaid com Workers AI, D1 e R2.",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "dev:api": "wrangler dev --config wrangler.local.jsonc --ip 127.0.0.1 --port 8787",
+    "build": "npm run typecheck && vite build",
+    "typecheck": "tsc --noEmit && tsc -p tsconfig.worker.json --noEmit",
+    "setup:local": "node scripts/setup-local.mjs && npm run build && npm run db:local",
+    "test": "vitest run",
+    "test:api": "node scripts/test-api.mjs",
+    "preview": "vite preview --host 127.0.0.1",
+    "db:local": "wrangler d1 migrations apply mermeid-flex --config wrangler.local.jsonc --local",
+    "db:remote": "wrangler d1 migrations apply mermeid-flex --remote",
+    "deploy": "npm run build && node scripts/check-deploy.mjs && wrangler deploy",
+    "deploy:check": "wrangler deploy --dry-run --outdir .worker-build",
+    "schema": "tsx scripts/schema.ts"
+  },
+  "dependencies": {
+    "dompurify": "^3.4.17",
+    "html-to-image": "1.11.13",
+    "lucide": "^0.468.0",
+    "mermaid": "^11.12.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261007.1",
+    "@types/node": "^22.0.0",
+    "jsonc-parser": "^3.3.1",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.0",
+    "vitest": "^4.1.12",
+    "wrangler": "^4.156.0"
+  },
+  "overrides": {
+    "katex": "0.18.2"
+  }
+}

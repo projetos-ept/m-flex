@@ -1,0 +1,19 @@
+{
+  "format": "mermeid-flex",
+  "version": 1,
+  "id": "3bd6ace8-c861-4c53-9cf2-4e733af0c9cd",
+  "title": "Universo criativo",
+  "source": "mindmap\n  root((Universo criativo))\n    Explorar\n      Repertório visual\n      Novas perspectivas\n      Fazer perguntas\n    Conectar\n      Pessoas e ideias\n      Encontrar padrões\n      Criar relações\n    Experimentar\n      Pequenos protótipos\n      Testar caminhos\n      Aprender fazendo\n    Compartilhar\n      Contar histórias\n      Colher feedback\n      Evoluir juntos",
+  "style": {
+    "presetId": "botanica",
+    "overrides": {}
+  },
+  "composition": {
+    "enabled": true,
+    "layout": "studio",
+    "subtitle": "Ideias que merecem ganhar forma.",
+    "showFooter": true
+  },
+  "createdAt": "2026-10-07T00:00:00.000Z",
+  "updatedAt": "2026-10-07T00:00:00.000Z"
+}

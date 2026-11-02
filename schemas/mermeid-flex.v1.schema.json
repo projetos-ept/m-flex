@@ -1,0 +1,233 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "format": {
+      "type": "string",
+      "const": "mermeid-flex"
+    },
+    "version": {
+      "type": "number",
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "source": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 16000
+    },
+    "style": {
+      "type": "object",
+      "properties": {
+        "presetId": {
+          "type": "string",
+          "enum": [
+            "botanica",
+            "floresta",
+            "terracota",
+            "oceano",
+            "deserto",
+            "salvia",
+            "lavanda",
+            "algodao",
+            "sorvete",
+            "matcha",
+            "aurora",
+            "pessego",
+            "jornal",
+            "bauhaus",
+            "swiss",
+            "caderno",
+            "galeria",
+            "cobalto",
+            "meia-noite",
+            "dracula",
+            "nord",
+            "carbono",
+            "cosmos",
+            "esmeralda",
+            "carnaval",
+            "pop",
+            "sunset",
+            "tropical",
+            "memphis",
+            "citrus",
+            "blueprint",
+            "terminal",
+            "circuito",
+            "wireframe",
+            "isometrico",
+            "laboratorio"
+          ]
+        },
+        "overrides": {
+          "type": "object",
+          "properties": {
+            "background": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            },
+            "ink": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            },
+            "palette": {
+              "minItems": 6,
+              "maxItems": 6,
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^#[0-9a-fA-F]{6}$"
+              }
+            },
+            "font": {
+              "type": "string",
+              "enum": [
+                "sans",
+                "serif",
+                "mono"
+              ]
+            },
+            "fontSize": {
+              "type": "number",
+              "minimum": 12,
+              "maximum": 26
+            },
+            "radius": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 32
+            },
+            "lineWidth": {
+              "type": "number",
+              "minimum": 1,
+              "maximum": 5
+            },
+            "lineStyle": {
+              "type": "string",
+              "enum": [
+                "solid",
+                "dashed",
+                "dotted"
+              ]
+            },
+            "pattern": {
+              "type": "string",
+              "enum": [
+                "dots",
+                "grid",
+                "none"
+              ]
+            },
+            "shadow": {
+              "type": "string",
+              "enum": [
+                "none",
+                "soft",
+                "offset"
+              ]
+            },
+            "nodeStyle": {
+              "type": "string",
+              "enum": [
+                "soft",
+                "outline",
+                "solid"
+              ]
+            },
+            "spacing": {
+              "type": "number",
+              "minimum": 20,
+              "maximum": 80
+            },
+            "rootFill": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            },
+            "rootText": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            },
+            "rootBorder": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            },
+            "rootRadius": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 80
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "presetId",
+        "overrides"
+      ],
+      "additionalProperties": false
+    },
+    "composition": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "layout": {
+          "type": "string",
+          "enum": [
+            "studio",
+            "poster",
+            "glass"
+          ]
+        },
+        "subtitle": {
+          "type": "string",
+          "maxLength": 180
+        },
+        "showFooter": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "enabled",
+        "layout",
+        "subtitle",
+        "showFooter"
+      ],
+      "additionalProperties": false
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+    }
+  },
+  "required": [
+    "format",
+    "version",
+    "id",
+    "title",
+    "source",
+    "style",
+    "createdAt",
+    "updatedAt"
+  ],
+  "additionalProperties": false,
+  "title": "Mermeid-flex document v1",
+  "description": "Estrutura do projeto. Validações adicionais de conteúdo Mermaid e tamanho UTF-8 são aplicadas por parseDocument."
+}

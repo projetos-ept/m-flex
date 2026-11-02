@@ -1,0 +1,5 @@
+# SOMENTE desenvolvimento: copie para .dev.vars (ignorado pelo Git).
+# Troque por um token aleatório de 32 bytes em hexadecimal.
+APP_ACCESS_TOKEN=mermeid-flex-local-development-token-2026
+# IA real desativada por padrão; ver docs/DEPLOY.md.
+AI_ENABLED=false
